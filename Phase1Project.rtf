@@ -1,0 +1,647 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Consolas;}}
+{\colortbl ;\red127\green0\blue85;\red0\green0\blue0;\red0\green0\blue192;\red106\green62\blue62;\red42\green0\blue255;\red63\green127\blue95;\red127\green159\blue191;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\ul\b\f0\fs22\lang9 Program:\par
+\cf1\ulnone\f1\fs24 public\cf2\b0  \cf1\b class\cf2\b0  Camera \{\cf0\par
+\cf2\tab\cf1\b private\cf2\b0  \cf1\b int\cf2\b0  \cf3 id\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  String \cf3 brand\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  String \cf3 model\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  \cf1\b double\cf2\b0  \cf3 rentalAmount\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  \cf1\b boolean\cf2\b0  \cf3 rented\cf2 ;\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  Camera(\cf1\b int\cf2\b0  \cf4 id\cf2 , String \cf4 brand\cf2 , String \cf4 model\cf2 , \cf1\b double\cf2\b0  \cf4 rentalAmount\cf2 ) \{\cf0\par
+\cf2         \cf1\b this\cf2\b0 .\cf3 id\cf2  = \cf4 id\cf2 ;\cf0\par
+\cf2         \cf1\b this\cf2\b0 .\cf3 brand\cf2  = \cf4 brand\cf2 ;\cf0\par
+\cf2         \cf1\b this\cf2\b0 .\cf3 model\cf2  = \cf4 model\cf2 ;\cf0\par
+\cf2         \cf1\b this\cf2\b0 .\cf3 rentalAmount\cf2  = \cf4 rentalAmount\cf2 ;\cf0\par
+\cf2         \cf1\b this\cf2\b0 .\cf3 rented\cf2  = \cf1\b false\cf2\b0 ;\cf0\par
+\cf2     \}\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  \cf1\b int\cf2\b0  getId() \{\cf0\par
+\cf2         \cf1\b return\cf2\b0  \cf3 id\cf2 ;\cf0\par
+\cf2     \}\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  String getBrand() \{\cf0\par
+\cf2         \cf1\b return\cf2\b0  \cf3 brand\cf2 ;\cf0\par
+\cf2     \}\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  String getModel() \{\cf0\par
+\cf2         \cf1\b return\cf2\b0  \cf3 model\cf2 ;\cf0\par
+\cf2     \}\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  \cf1\b double\cf2\b0  getRentalAmount() \{\cf0\par
+\cf2         \cf1\b return\cf2\b0  \cf3 rentalAmount\cf2 ;\cf0\par
+\cf2     \}\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  \cf1\b boolean\cf2\b0  isRented() \{\cf0\par
+\cf2         \cf1\b return\cf2\b0  \cf3 rented\cf2 ;\cf0\par
+\cf2     \}\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  \cf1\b void\cf2\b0  setRented(\cf1\b boolean\cf2\b0  \cf4 rented\cf2 ) \{\cf0\par
+\cf2         \cf1\b this\cf2\b0 .\cf3 rented\cf2  = \cf4 rented\cf2 ;\cf0\par
+\cf2     \}\cf0\par
+\cf2      \cf0\par
+\cf2\}\par
+\cf1\b import\cf2\b0  java.util.ArrayList;\cf0\par
+\cf1\b import\cf2\b0  java.util.Iterator;\cf0\par
+\cf1\b import\cf2\b0  java.util.List;\cf0\par
+\cf1\b import\cf2\b0  java.util.Scanner;\cf0\par
+\cf1\b public\cf2\b0  \cf1\b class\cf2\b0  CameraRentalApp\cf0\par
+\cf2\{\cf0\par
+\cf2\tab\cf1\b private\cf2\b0  List<Camera> \cf3 cameraList\cf2 ;\cf0\par
+\cf2\tab\cf1\b private\cf2\b0  Scanner \cf3 scanner\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  \cf1\b int\cf2\b0  \cf3 cameraIdCounter\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  List<Camera> \cf3 MycameraList\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  Wallet \cf3 wallet\cf2 ;\cf0\par
+\cf2\tab    \cf1\b public\cf2\b0  CameraRentalApp() \{\cf0\par
+\cf2\tab        \cf3 cameraList\cf2  = \cf1\b new\cf2\b0  ArrayList<>();\cf0\par
+\cf2\tab        \cf3 MycameraList\cf2 =\cf1\b new\cf2\b0  ArrayList<>();\cf0\par
+\cf2\tab        \cf3 scanner\cf2  = \cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab        \cf3 cameraIdCounter\cf2  = 7;\cf0\par
+\cf2\tab        \cf3 wallet\cf2 =\cf1\b new\cf2\b0  Wallet();\cf0\par
+\cf2\tab        \cf0\par
+\cf2\tab    \}\cf0\par
+\par
+\cf2\tab     \cf1\b public\cf2\b0  \cf1\b void\cf2\b0  run() \cf0\par
+\cf2\tab     \{\cf0\par
+\cf2\tab     List<User> \cf4 users\cf2  = \cf1\b new\cf2\b0  ArrayList<>();\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Ammu"\cf2 , \cf5 "Talaented"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Nani"\cf2 , \cf5 "Dancer"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Keeru"\cf2 , \cf5 "Singer"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Navya"\cf2 , \cf5 "Player"\cf2 )); \cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Ashu"\cf2 , \cf5 "Worker"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Yamini"\cf2 , \cf5 "Helloworld"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Akshitha"\cf2 , \cf5 "Skeleton"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Swarna"\cf2 , \cf5 "multiTalented"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Likki"\cf2 , \cf5 "Ranker"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  User(\cf5 "Bujjamma"\cf2 , \cf5 "Sensitive"\cf2 ));\cf0\par
+\cf2         \cf0\par
+\cf2         \cf3 cameraList\cf2 .add(\cf1\b new\cf2\b0  Camera(1,\cf5 "Sony"\cf2 ,\cf5 "2018"\cf2 ,5000));\cf0\par
+\cf2         \cf3 cameraList\cf2 .add(\cf1\b new\cf2\b0  Camera(2,\cf5 "Samsung"\cf2 ,\cf5 "XLR"\cf2 ,10000));\cf0\par
+\cf2         \cf3 cameraList\cf2 .add(\cf1\b new\cf2\b0  Camera(3,\cf5 "Dslr"\cf2 ,\cf5 "Slr"\cf2 ,8000));\cf0\par
+\cf2         \cf3 cameraList\cf2 .add(\cf1\b new\cf2\b0  Camera(4,\cf5 "Canon"\cf2 ,\cf5 "Eos"\cf2 ,700));\cf0\par
+\cf2         \cf0\par
+\cf2         Scanner \cf4\ul scanner\cf2\ulnone  = \cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "+_____________+______________+"\cf2 );\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "|WELCOME TO CAMERA RENTAL APP|"\cf2 );\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "+_____________+ _____________+"\cf2 );\cf0\par
+\cf2          System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Please login to continue"\cf2 );\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "Enter your username: "\cf2 );\cf0\par
+\cf2         String \cf4 username\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "Enter your password: "\cf2 );\cf0\par
+\cf2         String \cf4 password\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\par
+\cf2         User \cf4 currentUser\cf2  = \cf1\b null\cf2\b0 ;\cf0\par
+\cf2         \cf1\b for\cf2\b0  (User \cf4 user\cf2  : \cf4 users\cf2 )\cf0\par
+\cf2         \{\cf0\par
+\cf2             \cf1\b if\cf2\b0  (\cf4 user\cf2 .getUsername().equals(\cf4 username\cf2 ) && \cf4 user\cf2 .getPassword().equals(\cf4 password\cf2 ))\cf0\par
+\cf2             \{\cf0\par
+\cf2                 \cf4 currentUser\cf2  = \cf4 user\cf2 ;\cf0\par
+\cf2                 \cf1\b break\cf2\b0 ;\cf0\par
+\cf2             \}\cf0\par
+\cf2         \}\cf0\par
+\par
+\cf2         \cf1\b if\cf2\b0  (\cf4 currentUser\cf2  == \cf1\b null\cf2\b0 )\cf0\par
+\cf2         \{\cf0\par
+\cf2             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Invalid username or password."\cf2 );\cf0\par
+\cf2             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Please make sure that you have entered the correct Credentials,Try Again!"\cf2 );\cf0\par
+\cf2             \cf1\b return\cf2\b0 ;\cf0\par
+\cf2         \}\cf0\par
+\cf2        \cf0\par
+\cf2         displayMenu();\cf0\par
+\cf2         \cf0\par
+\cf2\tab      \}\cf0\par
+\cf2\tab     \cf1\b public\cf2\b0  \cf1\b void\cf2\b0  displayMenu() \cf0\par
+\cf2         \{\cf0\par
+\par
+\cf2         \cf0\par
+\cf2         \tab\cf1\b boolean\cf2\b0  \cf4 loggedIn\cf2 =\cf1\b true\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\cf1\b if\cf2\b0 (\cf4 loggedIn\cf2 )\cf0\par
+\cf2         \tab\tab\tab\{\cf0\par
+\cf2         \tab\tab\tab\tab\cf1\b while\cf2\b0  (\cf1\b true\cf2\b0 ) \cf0\par
+\cf2         \tab\tab\tab\tab\{\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "==== MAIN MENU ===="\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "\\n1. MY CAMERA"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "2. RENT A CAMERA"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "3. VIEW ALL CAMERAS"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "4. MY WALLET"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "5.EXIT"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "Enter your choice: "\cf2 );\cf0\par
+\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b int\cf2\b0  \cf4 choice\cf2  = Integer.\i parseInt\i0 (\cf3 scanner\cf2 .nextLine());\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b switch\cf2\b0 (\cf4 choice\cf2 )\cf0\par
+\cf2         \tab\tab\tab\tab\tab\{\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  1:goMyCamera();\cf0\par
+\cf2         \tab\tab\tab\tab\tab        \cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  2:goRentCamera();\cf0\par
+\cf2         \tab\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  3:goViewAllCameras();\cf0\par
+\cf2         \tab\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  4:goMyWallet();\cf0\par
+\cf2         \tab\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  5:System.\i exit\i0 (0);\cf0\par
+\cf2                                    \cf1\b break\cf2\b0 ;\cf0\par
+\cf2                             \cf1\b default\cf2\b0 :\cf0\par
+\cf2                                    System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Wrong choice. Please try again."\cf2 );\cf0\par
+\cf2                                     \cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\}\cf0\par
+\cf2                         \}\cf0\par
+\cf2         \tab\tab\tab\}\cf0\par
+\cf2\tab\tab    \}\cf0\par
+\par
+\cf2\tab         \cf6 //MY WALLET\cf0\par
+\cf2\tab         \cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goMyWallet() \{\cf0\par
+\cf2\tab\tab\tab\cf0\par
+\cf2\tab     \tab Scanner \cf4\ul scanner\cf2\ulnone  = \cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\par
+\cf2\tab         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOUR WALLET BALANCE IS INR."\cf2  + \cf3 wallet\cf2 .getBalance());\cf0\par
+\par
+\cf2\tab         System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "DO YOU WANT TO DEPOSIT AMOUNT TO YOUR WALLET ?(yes/no): "\cf2 );\cf0\par
+\cf2\tab         String \cf4 depositChoice\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\par
+\cf2\tab         \cf1\b if\cf2\b0  (\cf4 depositChoice\cf2 .equalsIgnoreCase(\cf5 "yes"\cf2 ))\cf0\par
+\cf2\tab         \{\cf0\par
+\cf2\tab             System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE AMOUNT TO DEPOSIT(INR)- "\cf2 );\cf0\par
+\cf2\tab             \cf1\b double\cf2\b0  \cf4 depositAmount\cf2  = \cf4 scanner\cf2 .nextDouble();\cf0\par
+\par
+\cf2\tab             \cf1\b if\cf2\b0  (\cf4 depositAmount\cf2  > 0) \cf0\par
+\cf2\tab             \{\cf0\par
+\cf2\tab                 \cf3 wallet\cf2 .deposit(\cf4 depositAmount\cf2 );\cf0\par
+\cf2\tab                 System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Deposit successful."\cf2 );\cf0\par
+\cf2\tab             \} \cf0\par
+\cf2\tab             \cf1\b else\cf0\b0\par
+\cf2\tab             \{\cf0\par
+\cf2\tab                 System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Invalid amount. Deposit failed."\cf2 );\cf0\par
+\cf2\tab             \}\cf0\par
+\par
+\cf2\tab             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOUR WALLET BALANCE UPDATED SUCCESSFULLY.CURRENT WALLET BALANCE-INR "\cf2  + \cf3 wallet\cf2 .getBalance());\cf0\par
+\cf2\tab         \}\cf0\par
+\cf2\tab\tab\}\cf0\par
+\cf2         \cf6 //MY CAMERA\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goMyCamera() \{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab     \tab Scanner \cf4\ul scanner\cf2\ulnone =\cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab     \tab\cf1\b while\cf2\b0 (\cf1\b true\cf2\b0 )\cf0\par
+\cf2\tab     \tab\{\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "==== SUB MENU ===="\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "\\n1. ADD"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "2. REMOVE"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "3. VIEW MY CAMERAS"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "4. GO TO PREVIOUS MENU"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "Enter your choice: "\cf2 );\cf0\par
+\par
+\cf2\tab\tab\tab\tab\cf1\b int\cf2\b0  \cf4 choice\cf2  = Integer.\i parseInt\i0 (\cf4 scanner\cf2 .nextLine());\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b switch\cf2\b0 (\cf4 choice\cf2 )\cf0\par
+\cf2\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b case\cf2\b0  1:goAddCamera();\cf0\par
+\cf2\tab\tab\tab\tab        \cf1\b break\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b case\cf2\b0  2:goRemoveCamera();\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b case\cf2\b0  3:goViewMyCameras();\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b case\cf2\b0  4:\cf1\b break\cf2\b0 ;\cf0\par
+\cf2                 \cf1\b default\cf2\b0 :\cf0\par
+\cf2                        System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Wrong choice. Please try again."\cf2 );\cf0\par
+\cf2                         \cf1\b break\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b if\cf2\b0 (\cf4 choice\cf2 ==4)\cf0\par
+\cf2\tab\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\tab\cf1\b return\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\}\cf0\par
+\cf2        \tab\}\cf0\par
+\par
+\par
+\cf2\tab\tab\cf6 //VIEW MY CAMERAS\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goViewMyCameras() \{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab\cf1\b if\cf2\b0  (\cf3 MycameraList\cf2 .isEmpty())\cf0\par
+\cf2\tab\tab\tab\{\cf0\par
+\cf2\tab\tab            System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOU HAVE NO CAMERAS."\cf2 );\cf0\par
+\cf2\tab\tab        \} \cf0\par
+\cf2\tab\tab\tab\cf1\b else\cf2\b0  \{\cf0\par
+\cf2\tab\tab             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Cameras List:"\cf2 );\cf0\par
+\cf2\tab\tab             System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5s %-10s %-10s %-15s %-10s%n"\cf2 , \cf5 "ID"\cf2 , \cf5 "Brand"\cf2 , \cf5 "Model"\cf2 , \cf5 "Rental Amount"\cf2 , \cf5 "Status"\cf2 );\cf0\par
+\cf2\tab\tab             \cf1\b for\cf2\b0  (Camera \cf4 camera\cf2  : \cf3 MycameraList\cf2 ) \cf0\par
+\cf2\tab\tab             \{\cf0\par
+\cf2\tab\tab                 String \cf4 status\cf2  = \cf4 camera\cf2 .isRented() ? \cf5 "Rented"\cf2  : \cf5 "Available"\cf2 ;\cf0\par
+\cf2\tab\tab                 System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5d %-10s %-10s $%-15.2f %-10s%n"\cf2 , \cf4 camera\cf2 .getId(), \cf4 camera\cf2 .getBrand(), \cf4 camera\cf2 .getModel(),\cf0\par
+\cf2\tab\tab                         \cf4 camera\cf2 .getRentalAmount(), \cf4 status\cf2 );\cf0\par
+\cf2\tab\tab             \}\cf0\par
+\cf2                  \}\cf0\par
+\cf2\tab\tab\}\cf0\par
+\par
+\par
+\cf2\tab\tab\cf6 //REMOVE\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goRemoveCamera() \{\cf0\par
+\cf2\tab\tab\tab Scanner \cf4\ul scanner\cf2\ulnone =\cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE CAMERA ID TO REMOVE"\cf2 );\cf0\par
+\cf2\tab\tab\tab\cf1\b int\cf2\b0  \cf4 id\cf2 =\cf4 scanner\cf2 .nextInt();\cf0\par
+\cf2\tab\tab\tab Iterator<Camera> \cf4 iterator\cf2  = \cf3 cameraList\cf2 .iterator();\cf0\par
+\cf2\tab         \cf1\b while\cf2\b0  (\cf4 iterator\cf2 .hasNext()) \{\cf0\par
+\cf2\tab             Camera \cf4 camera\cf2  = \cf4 iterator\cf2 .next();\cf0\par
+\cf2\tab             \cf1\b if\cf2\b0  (\cf4 camera\cf2 .getId() == \cf4 id\cf2 ) \{\cf0\par
+\cf2\tab             \tab\cf3 cameraList\cf2 .remove(\cf4 camera\cf2 );\cf0\par
+\cf2\tab             \tab\cf3 cameraIdCounter\cf2 --;\cf0\par
+\cf2\tab                 System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "CAMERA SUCCESSFULLY REMOVED FROM THE LIST"\cf2 );\cf0\par
+\cf2\tab                 \cf1\b return\cf2\b0 ;\cf0\par
+\cf2\tab             \}\cf0\par
+\cf2\tab         \}\cf0\par
+\cf2\tab         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "CAMERA NOT FOUND IN THE LIST"\cf2 );\cf0\par
+\cf2\tab\}\cf0\par
+\cf2\tab\tab\cf6 //ADD\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goAddCamera() \{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab Scanner \cf4\ul scanner\cf2\ulnone =\cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE CAMERA BRAND: "\cf2 );\cf0\par
+\cf2\tab\tab        String \cf4 brand\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\cf2\tab\tab        System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE MODEL: "\cf2 );\cf0\par
+\cf2\tab\tab        String \cf4 model\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\cf2\tab\tab        System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE PER DAY PRICE (INR): "\cf2 );\cf0\par
+\cf2\tab\tab        \cf1\b int\cf2\b0  \cf4 rentalAmount\cf2  = Integer.\i parseInt\i0 (\cf4 scanner\cf2 .nextLine());\cf0\par
+\cf2\tab\tab        Camera \cf4 camera\cf2  = \cf1\b new\cf2\b0  Camera(\cf3 cameraIdCounter\cf2 ++, \cf4 brand\cf2 , \cf4 model\cf2 , \cf4 rentalAmount\cf2 );\cf0\par
+\cf2\tab\tab        \cf3 cameraList\cf2 .add(\cf4 camera\cf2 );\cf0\par
+\cf2\tab\tab        System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOUR CAMERA HAS BEEN SUCCESSFULLY ADDED TO THE LIST."\cf2 );\cf0\par
+\cf2\tab\}\cf0\par
+\cf2        \cf6 //VIEW ALL CAMERAS\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goViewAllCameras() \{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab\cf1\b if\cf2\b0  (\cf3 cameraList\cf2 .isEmpty()) \{\cf0\par
+\cf2\tab\tab            System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOU HAVE NO CAMERAS."\cf2 );\cf0\par
+\cf2\tab\tab        \} \cf0\par
+\cf2\tab\tab\tab\cf1\b else\cf2\b0  \{\cf0\par
+\cf2\tab\tab             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Cameras List:"\cf2 );\cf0\par
+\cf2\tab\tab             System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5s %-10s %-10s %-15s %-10s%n"\cf2 , \cf5 "ID"\cf2 , \cf5 "Brand"\cf2 , \cf5 "Model"\cf2 , \cf5 "Rental Amount"\cf2 , \cf5 "Status"\cf2 );\cf0\par
+\cf2\tab\tab             \cf1\b for\cf2\b0  (Camera \cf4 camera\cf2  : \cf3 cameraList\cf2 ) \cf0\par
+\cf2\tab\tab             \{\cf0\par
+\cf2\tab\tab                 String \cf4 status\cf2  = \cf4 camera\cf2 .isRented() ? \cf5 "Rented"\cf2  : \cf5 "Available"\cf2 ;\cf0\par
+\cf2\tab\tab                 System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5d %-10s %-10s $%-15.2f %-10s%n"\cf2 , \cf4 camera\cf2 .getId(), \cf4 camera\cf2 .getBrand(), \cf4 camera\cf2 .getModel(),\cf0\par
+\cf2\tab\tab                         \cf4 camera\cf2 .getRentalAmount(), \cf4 status\cf2 );\cf0\par
+\cf2\tab\tab             \}\cf0\par
+\cf2               \}\cf0\par
+\cf2\tab\tab\tab\}\cf0\par
+\par
+\par
+\cf2\tab\tab\cf6 //RENT A CAMERA\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goRentCamera() \cf0\par
+\cf2\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "FOLLOWING IS THE LIST OF AVAILABLE CAMERA(S)"\cf2 );\cf0\par
+\cf2\tab\tab\tab\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5s %-10s %-10s %-15s %-10s%n"\cf2 , \cf5 "ID"\cf2 , \cf5 "Brand"\cf2 , \cf5 "Model"\cf2 , \cf5 "Rental Amount"\cf2 , \cf5 "Status"\cf2 );\cf0\par
+\cf2\tab         \cf1\b for\cf2\b0  (Camera \cf4 camera\cf2  : \cf3 cameraList\cf2 )\cf0\par
+\cf2\tab         \{\cf0\par
+\cf2\tab         \tab\cf0\par
+\cf2\tab             \cf1\b if\cf2\b0  (!\cf4 camera\cf2 .isRented()) \{\cf0\par
+\cf2\tab                 String \cf4 status\cf2  = \cf5 "Available"\cf2 ;\cf0\par
+\cf2\tab                 System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5d %-10s %-10s $%-15.2f %-10s%n"\cf2 , \cf4 camera\cf2 .getId(), \cf4 camera\cf2 .getBrand(), \cf4 camera\cf2 .getModel(),\cf0\par
+\cf2\tab                         \cf4 camera\cf2 .getRentalAmount(), \cf4 status\cf2 );\cf0\par
+\cf2\tab             \}\cf0\par
+\cf2\tab         \}\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "ENTER THE CAMERA ID YOU WANT TO RENT-"\cf2 );\cf0\par
+\cf2\tab\tab\tab Scanner \cf4\ul scanner\cf2\ulnone =\cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab\tab\tab\cf1\b int\cf2\b0  \cf4 id\cf2 =\cf4 scanner\cf2 .nextInt();\cf0\par
+\cf2\tab\tab\tab\cf1\b for\cf2\b0  (Camera \cf4 camera\cf2  : \cf3 cameraList\cf2 )\cf0\par
+\cf2\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b if\cf2\b0 (\cf4 camera\cf2 .getId()==\cf4 id\cf2  )\cf0\par
+\cf2\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\tab\cf1\b if\cf2\b0 (\cf4 camera\cf2 .getRentalAmount()<=\cf3 wallet\cf2 .getBalance())\cf0\par
+\cf2\tab\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf4 camera\cf2 .setRented(\cf1\b true\cf2\b0 );\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf3 MycameraList\cf2 .add(\cf4 camera\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf3 wallet\cf2 .setBalance(\cf3 wallet\cf2 .getBalance()-\cf4 camera\cf2 .getRentalAmount());\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOUR TRANSACTION FOR CAMERA-"\cf2 +\cf4 camera\cf2 .getBrand()+\cf5 " "\cf2 +\cf4 camera\cf2 .getModel()+\cf5 " with rent INR."\cf2 +\cf4 camera\cf2 .getRentalAmount()+\cf5 " HAS SUCCESSFULLY COMPLETED"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\tab\tab\cf1\b else\cf0\b0\par
+\cf2\tab\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "ERROR:TRANSACTION FAILED DUE TO INSUFFICIENT WALLET BALANCE. PLEASE DEPOSIT THE AMOUNT TO YOUR WALLET"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf0\par
+\cf2\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\}\cf0\par
+\cf2             \cf6 //MAIN METHOD\cf0\par
+\cf2             \cf1\b public\cf2\b0  \cf1\b static\cf2\b0  \cf1\b void\cf2\b0  main(String[] \cf4 args\cf2 ) \{\cf0\par
+\cf2\tab         CameraRentalApp \cf4 app\cf2  = \cf1\b new\cf2\b0  CameraRentalApp();\cf0\par
+\cf2\tab         \cf4 app\cf2 .run();\cf0\par
+\cf2\tab     \}\cf0\par
+\cf2\tab\}\cf0\par
+\cf1\b import\cf2\b0  java.util.ArrayList;\cf0\par
+\cf1\b import\cf2\b0  java.util.Iterator;\cf0\par
+\cf1\b import\cf2\b0  java.util.List;\cf0\par
+\cf1\b import\cf2\b0  java.util.Scanner;\cf0\par
+\cf1\b public\cf2\b0  \cf1\b class\cf2\b0  \ul CameraRentalApp\cf0\ulnone\par
+\cf2\{\cf0\par
+\cf2\tab\cf1\b private\cf2\b0  List<Camera> \cf3 cameraList\cf2 ;\cf0\par
+\cf2\tab\cf1\b private\cf2\b0  Scanner \cf3 scanner\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  \cf1\b int\cf2\b0  \cf3 cameraIdCounter\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  List<Camera> \cf3 MycameraList\cf2 ;\cf0\par
+\cf2     \cf1\b private\cf2\b0  Wallet \cf3 wallet\cf2 ;\cf0\par
+\cf2\tab    \cf1\b public\cf2\b0  CameraRentalApp() \{\cf0\par
+\cf2\tab        \cf3 cameraList\cf2  = \cf1\b new\cf2\b0  ArrayList<>();\cf0\par
+\cf2\tab        \cf3 MycameraList\cf2 =\cf1\b new\cf2\b0  ArrayList<>();\cf0\par
+\cf2\tab        \cf3 scanner\cf2  = \cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab        \cf3 cameraIdCounter\cf2  = 7;\cf0\par
+\cf2\tab        \cf3 wallet\cf2 =\cf1\b new\cf2\b0  Wallet();\cf0\par
+\cf2\tab        \cf0\par
+\cf2\tab    \}\cf0\par
+\par
+\cf2\tab     \cf1\b public\cf2\b0  \cf1\b void\cf2\b0  run() \cf0\par
+\cf2\tab     \{\cf0\par
+\cf2\tab     List<\ul User\ulnone > \cf4 users\cf2  = \cf1\b new\cf2\b0  ArrayList<>();\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Ammu"\cf2 , \cf5 "Talaented"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Nani"\cf2 , \cf5 "Dancer"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Keeru"\cf2 , \cf5 "Singer"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Navya"\cf2 , \cf5 "Player"\cf2 )); \cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Ashu"\cf2 , \cf5 "Worker"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Yamini"\cf2 , \cf5 "Helloworld"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Akshitha"\cf2 , \cf5 "Skeleton"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Swarna"\cf2 , \cf5 "multiTalented"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Likki"\cf2 , \cf5 "Ranker"\cf2 ));\cf0\par
+\cf2         \cf4 users\cf2 .add(\cf1\b new\cf2\b0  \ul User\ulnone (\cf5 "Bujjamma"\cf2 , \cf5 "Sensitive"\cf2 ));\cf0\par
+\cf2         \cf0\par
+\cf2         \cf3 cameraList\cf2 .add(\cf1\b new\cf2\b0  Camera(1,\cf5 "Sony"\cf2 ,\cf5 "2018"\cf2 ,5000));\cf0\par
+\cf2         \cf3 cameraList\cf2 .add(\cf1\b new\cf2\b0  Camera(2,\cf5 "Samsung"\cf2 ,\cf5 "XLR"\cf2 ,10000));\cf0\par
+\cf2         \cf3 cameraList\cf2 .add(\cf1\b new\cf2\b0  Camera(3,\cf5 "Dslr"\cf2 ,\cf5 "Slr"\cf2 ,8000));\cf0\par
+\cf2         \cf3 cameraList\cf2 .add(\cf1\b new\cf2\b0  Camera(4,\cf5 "Canon"\cf2 ,\cf5 "Eos"\cf2 ,700));\cf0\par
+\cf2         \cf0\par
+\cf2         Scanner \cf4 scanner\cf2  = \cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "+_____________+______________+"\cf2 );\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "|WELCOME TO CAMERA RENTAL APP|"\cf2 );\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "+_____________+ _____________+"\cf2 );\cf0\par
+\cf2          System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Please login to continue"\cf2 );\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "Enter your username: "\cf2 );\cf0\par
+\cf2         String \cf4 username\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\cf2         System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "Enter your password: "\cf2 );\cf0\par
+\cf2         String \cf4 password\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\par
+\cf2         \ul User\ulnone  \cf4 currentUser\cf2  = \cf1\b null\cf2\b0 ;\cf0\par
+\cf2         \cf1\b for\cf2\b0  (\ul User\ulnone  \cf4 user\cf2  : \cf4 users\cf2 )\cf0\par
+\cf2         \{\cf0\par
+\cf2             \cf1\b if\cf2\b0  (\cf4 user\cf2 .getUsername().equals(\cf4 username\cf2 ) && \cf4 user\cf2 .getPassword().equals(\cf4 password\cf2 ))\cf0\par
+\cf2             \{\cf0\par
+\cf2                 \cf4 currentUser\cf2  = \cf4 user\cf2 ;\cf0\par
+\cf2                 \cf1\b break\cf2\b0 ;\cf0\par
+\cf2             \}\cf0\par
+\cf2         \}\cf0\par
+\par
+\cf2         \cf1\b if\cf2\b0  (\cf4 currentUser\cf2  == \cf1\b null\cf2\b0 )\cf0\par
+\cf2         \{\cf0\par
+\cf2             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Invalid username or password."\cf2 );\cf0\par
+\cf2             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Please make sure that you have entered the correct Credentials,Try Again!"\cf2 );\cf0\par
+\cf2             \cf1\b return\cf2\b0 ;\cf0\par
+\cf2         \}\cf0\par
+\cf2        \cf0\par
+\cf2         displayMenu();\cf0\par
+\cf2         \cf0\par
+\cf2\tab      \}\cf0\par
+\cf2\tab     \cf1\b public\cf2\b0  \cf1\b void\cf2\b0  displayMenu() \cf0\par
+\cf2         \{\cf0\par
+\par
+\cf2         \cf0\par
+\cf2         \tab\cf1\b boolean\cf2\b0  \cf4 loggedIn\cf2 =\cf1\b true\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\cf1\b if\cf2\b0 (\cf4 loggedIn\cf2 )\cf0\par
+\cf2         \tab\tab\tab\{\cf0\par
+\cf2         \tab\tab\tab\tab\cf1\b while\cf2\b0  (\cf1\b true\cf2\b0 ) \cf0\par
+\cf2         \tab\tab\tab\tab\{\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "==== MAIN MENU ===="\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "\\n1. MY CAMERA"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "2. RENT A CAMERA"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "3. VIEW ALL CAMERAS"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "4. MY WALLET"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "5.EXIT"\cf2 );\cf0\par
+\cf2         \tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "Enter your choice: "\cf2 );\cf0\par
+\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b int\cf2\b0  \cf4 choice\cf2  = Integer.\i parseInt\i0 (\cf3 scanner\cf2 .nextLine());\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b switch\cf2\b0 (\cf4 choice\cf2 )\cf0\par
+\cf2         \tab\tab\tab\tab\tab\{\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  1:goMyCamera();\cf0\par
+\cf2         \tab\tab\tab\tab\tab        \cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  2:goRentCamera();\cf0\par
+\cf2         \tab\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  3:goViewAllCameras();\cf0\par
+\cf2         \tab\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  4:goMyWallet();\cf0\par
+\cf2         \tab\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\cf1\b case\cf2\b0  5:System.\i exit\i0 (0);\cf0\par
+\cf2                                    \cf1\b break\cf2\b0 ;\cf0\par
+\cf2                             \cf1\b default\cf2\b0 :\cf0\par
+\cf2                                    System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Wrong choice. Please try again."\cf2 );\cf0\par
+\cf2                                     \cf1\b break\cf2\b0 ;\cf0\par
+\cf2         \tab\tab\tab\tab\tab\}\cf0\par
+\cf2                         \}\cf0\par
+\cf2         \tab\tab\tab\}\cf0\par
+\cf2\tab\tab    \}\cf0\par
+\par
+\cf2\tab         \cf6 //MY WALLET\cf0\par
+\cf2\tab         \cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goMyWallet() \{\cf0\par
+\cf2\tab\tab\tab\cf0\par
+\cf2\tab     \tab Scanner \cf4 scanner\cf2  = \cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\par
+\cf2\tab         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOUR WALLET BALANCE IS INR."\cf2  + \cf3 wallet\cf2 .getBalance());\cf0\par
+\par
+\cf2\tab         System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "DO YOU WANT TO DEPOSIT AMOUNT TO YOUR WALLET ?(yes/no): "\cf2 );\cf0\par
+\cf2\tab         String \cf4 depositChoice\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\par
+\cf2\tab         \cf1\b if\cf2\b0  (\cf4 depositChoice\cf2 .equalsIgnoreCase(\cf5 "yes"\cf2 ))\cf0\par
+\cf2\tab         \{\cf0\par
+\cf2\tab             System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE AMOUNT TO DEPOSIT(INR)- "\cf2 );\cf0\par
+\cf2\tab             \cf1\b double\cf2\b0  \cf4 depositAmount\cf2  = \cf4 scanner\cf2 .nextDouble();\cf0\par
+\par
+\cf2\tab             \cf1\b if\cf2\b0  (\cf4 depositAmount\cf2  > 0) \cf0\par
+\cf2\tab             \{\cf0\par
+\cf2\tab                 \cf3 wallet\cf2 .deposit(\cf4 depositAmount\cf2 );\cf0\par
+\cf2\tab                 System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Deposit successful."\cf2 );\cf0\par
+\cf2\tab             \} \cf0\par
+\cf2\tab             \cf1\b else\cf0\b0\par
+\cf2\tab             \{\cf0\par
+\cf2\tab                 System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Invalid amount. Deposit failed."\cf2 );\cf0\par
+\cf2\tab             \}\cf0\par
+\par
+\cf2\tab             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOUR WALLET BALANCE UPDATED SUCCESSFULLY.CURRENT WALLET BALANCE-INR "\cf2  + \cf3 wallet\cf2 .getBalance());\cf0\par
+\cf2\tab         \}\cf0\par
+\cf2\tab\tab\}\cf0\par
+\cf2         \cf6 //MY CAMERA\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goMyCamera() \{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab     \tab Scanner \cf4 scanner\cf2 =\cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab     \tab\cf1\b while\cf2\b0 (\cf1\b true\cf2\b0 )\cf0\par
+\cf2\tab     \tab\{\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "==== SUB MENU ===="\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "\\n1. ADD"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "2. REMOVE"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "3. VIEW MY CAMERAS"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "4. GO TO PREVIOUS MENU"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "Enter your choice: "\cf2 );\cf0\par
+\par
+\cf2\tab\tab\tab\tab\cf1\b int\cf2\b0  \cf4 choice\cf2  = Integer.\i parseInt\i0 (\cf4 scanner\cf2 .nextLine());\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b switch\cf2\b0 (\cf4 choice\cf2 )\cf0\par
+\cf2\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b case\cf2\b0  1:goAddCamera();\cf0\par
+\cf2\tab\tab\tab\tab        \cf1\b break\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b case\cf2\b0  2:goRemoveCamera();\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b case\cf2\b0  3:goViewMyCameras();\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf1\b break\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b case\cf2\b0  4:\cf1\b break\cf2\b0 ;\cf0\par
+\cf2                 \cf1\b default\cf2\b0 :\cf0\par
+\cf2                        System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Wrong choice. Please try again."\cf2 );\cf0\par
+\cf2                         \cf1\b break\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b if\cf2\b0 (\cf4 choice\cf2 ==4)\cf0\par
+\cf2\tab\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\tab\cf1\b return\cf2\b0 ;\cf0\par
+\cf2\tab\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\}\cf0\par
+\cf2        \tab\}\cf0\par
+\par
+\par
+\cf2\tab\tab\cf6 //VIEW MY CAMERAS\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goViewMyCameras() \{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab\cf1\b if\cf2\b0  (\cf3 MycameraList\cf2 .isEmpty())\cf0\par
+\cf2\tab\tab\tab\{\cf0\par
+\cf2\tab\tab            System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOU HAVE NO CAMERAS."\cf2 );\cf0\par
+\cf2\tab\tab        \} \cf0\par
+\cf2\tab\tab\tab\cf1\b else\cf2\b0  \{\cf0\par
+\cf2\tab\tab             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Cameras List:"\cf2 );\cf0\par
+\cf2\tab\tab             System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5s %-10s %-10s %-15s %-10s%n"\cf2 , \cf5 "ID"\cf2 , \cf5 "Brand"\cf2 , \cf5 "Model"\cf2 , \cf5 "Rental Amount"\cf2 , \cf5 "Status"\cf2 );\cf0\par
+\cf2\tab\tab             \cf1\b for\cf2\b0  (Camera \cf4 camera\cf2  : \cf3 MycameraList\cf2 ) \cf0\par
+\cf2\tab\tab             \{\cf0\par
+\cf2\tab\tab                 String \cf4 status\cf2  = \cf4 camera\cf2 .isRented() ? \cf5 "Rented"\cf2  : \cf5 "Available"\cf2 ;\cf0\par
+\cf2\tab\tab                 System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5d %-10s %-10s $%-15.2f %-10s%n"\cf2 , \cf4 camera\cf2 .getId(), \cf4 camera\cf2 .getBrand(), \cf4 camera\cf2 .getModel(),\cf0\par
+\cf2\tab\tab                         \cf4 camera\cf2 .getRentalAmount(), \cf4 status\cf2 );\cf0\par
+\cf2\tab\tab             \}\cf0\par
+\cf2                  \}\cf0\par
+\cf2\tab\tab\}\cf0\par
+\par
+\par
+\cf2\tab\tab\cf6 //REMOVE\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goRemoveCamera() \{\cf0\par
+\cf2\tab\tab\tab Scanner \cf4 scanner\cf2 =\cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE CAMERA ID TO REMOVE"\cf2 );\cf0\par
+\cf2\tab\tab\tab\cf1\b int\cf2\b0  \cf4 id\cf2 =\cf4 scanner\cf2 .nextInt();\cf0\par
+\cf2\tab\tab\tab Iterator<Camera> \cf4 iterator\cf2  = \cf3 cameraList\cf2 .iterator();\cf0\par
+\cf2\tab         \cf1\b while\cf2\b0  (\cf4 iterator\cf2 .hasNext()) \{\cf0\par
+\cf2\tab             Camera \cf4 camera\cf2  = \cf4 iterator\cf2 .next();\cf0\par
+\cf2\tab             \cf1\b if\cf2\b0  (\cf4 camera\cf2 .getId() == \cf4 id\cf2 ) \{\cf0\par
+\cf2\tab             \tab\cf3 cameraList\cf2 .remove(\cf4 camera\cf2 );\cf0\par
+\cf2\tab             \tab\cf3 cameraIdCounter\cf2 --;\cf0\par
+\cf2\tab                 System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "CAMERA SUCCESSFULLY REMOVED FROM THE LIST"\cf2 );\cf0\par
+\cf2\tab                 \cf1\b return\cf2\b0 ;\cf0\par
+\cf2\tab             \}\cf0\par
+\cf2\tab         \}\cf0\par
+\cf2\tab         System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "CAMERA NOT FOUND IN THE LIST"\cf2 );\cf0\par
+\cf2\tab\}\cf0\par
+\cf2\tab\tab\cf6 //ADD\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goAddCamera() \{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab Scanner \cf4 scanner\cf2 =\cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE CAMERA BRAND: "\cf2 );\cf0\par
+\cf2\tab\tab        String \cf4 brand\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\cf2\tab\tab        System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE MODEL: "\cf2 );\cf0\par
+\cf2\tab\tab        String \cf4 model\cf2  = \cf4 scanner\cf2 .nextLine();\cf0\par
+\cf2\tab\tab        System.\cf3\b\i out\cf2\b0\i0 .print(\cf5 "ENTER THE PER DAY PRICE (INR): "\cf2 );\cf0\par
+\cf2\tab\tab        \cf1\b int\cf2\b0  \cf4 rentalAmount\cf2  = Integer.\i parseInt\i0 (\cf4 scanner\cf2 .nextLine());\cf0\par
+\cf2\tab\tab        Camera \cf4 camera\cf2  = \cf1\b new\cf2\b0  Camera(\cf3 cameraIdCounter\cf2 ++, \cf4 brand\cf2 , \cf4 model\cf2 , \cf4 rentalAmount\cf2 );\cf0\par
+\cf2\tab\tab        \cf3 cameraList\cf2 .add(\cf4 camera\cf2 );\cf0\par
+\cf2\tab\tab        System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOUR CAMERA HAS BEEN SUCCESSFULLY ADDED TO THE LIST."\cf2 );\cf0\par
+\cf2\tab\}\cf0\par
+\cf2        \cf6 //VIEW ALL CAMERAS\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goViewAllCameras() \{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab\cf1\b if\cf2\b0  (\cf3 cameraList\cf2 .isEmpty()) \{\cf0\par
+\cf2\tab\tab            System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOU HAVE NO CAMERAS."\cf2 );\cf0\par
+\cf2\tab\tab        \} \cf0\par
+\cf2\tab\tab\tab\cf1\b else\cf2\b0  \{\cf0\par
+\cf2\tab\tab             System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "Cameras List:"\cf2 );\cf0\par
+\cf2\tab\tab             System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5s %-10s %-10s %-15s %-10s%n"\cf2 , \cf5 "ID"\cf2 , \cf5 "Brand"\cf2 , \cf5 "Model"\cf2 , \cf5 "Rental Amount"\cf2 , \cf5 "Status"\cf2 );\cf0\par
+\cf2\tab\tab             \cf1\b for\cf2\b0  (Camera \cf4 camera\cf2  : \cf3 cameraList\cf2 ) \cf0\par
+\cf2\tab\tab             \{\cf0\par
+\cf2\tab\tab                 String \cf4 status\cf2  = \cf4 camera\cf2 .isRented() ? \cf5 "Rented"\cf2  : \cf5 "Available"\cf2 ;\cf0\par
+\cf2\tab\tab                 System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5d %-10s %-10s $%-15.2f %-10s%n"\cf2 , \cf4 camera\cf2 .getId(), \cf4 camera\cf2 .getBrand(), \cf4 camera\cf2 .getModel(),\cf0\par
+\cf2\tab\tab                         \cf4 camera\cf2 .getRentalAmount(), \cf4 status\cf2 );\cf0\par
+\cf2\tab\tab             \}\cf0\par
+\cf2               \}\cf0\par
+\cf2\tab\tab\tab\}\cf0\par
+\par
+\par
+\cf2\tab\tab\cf6 //RENT A CAMERA\cf0\par
+\cf2\tab\tab\cf1\b private\cf2\b0  \cf1\b void\cf2\b0  goRentCamera() \cf0\par
+\cf2\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\cf6 // \cf7\b TODO\cf6\b0  Auto-generated method stub\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "FOLLOWING IS THE LIST OF AVAILABLE CAMERA(S)"\cf2 );\cf0\par
+\cf2\tab\tab\tab\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5s %-10s %-10s %-15s %-10s%n"\cf2 , \cf5 "ID"\cf2 , \cf5 "Brand"\cf2 , \cf5 "Model"\cf2 , \cf5 "Rental Amount"\cf2 , \cf5 "Status"\cf2 );\cf0\par
+\cf2\tab         \cf1\b for\cf2\b0  (Camera \cf4 camera\cf2  : \cf3 cameraList\cf2 )\cf0\par
+\cf2\tab         \{\cf0\par
+\cf2\tab         \tab\cf0\par
+\cf2\tab             \cf1\b if\cf2\b0  (!\cf4 camera\cf2 .isRented()) \{\cf0\par
+\cf2\tab                 String \cf4 status\cf2  = \cf5 "Available"\cf2 ;\cf0\par
+\cf2\tab                 System.\cf3\b\i out\cf2\b0\i0 .printf(\cf5 "%-5d %-10s %-10s $%-15.2f %-10s%n"\cf2 , \cf4 camera\cf2 .getId(), \cf4 camera\cf2 .getBrand(), \cf4 camera\cf2 .getModel(),\cf0\par
+\cf2\tab                         \cf4 camera\cf2 .getRentalAmount(), \cf4 status\cf2 );\cf0\par
+\cf2\tab             \}\cf0\par
+\cf2\tab         \}\cf0\par
+\cf2\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "ENTER THE CAMERA ID YOU WANT TO RENT-"\cf2 );\cf0\par
+\cf2\tab\tab\tab Scanner \cf4 scanner\cf2 =\cf1\b new\cf2\b0  Scanner(System.\cf3\b\i in\cf2\b0\i0 );\cf0\par
+\cf2\tab\tab\tab\cf1\b int\cf2\b0  \cf4 id\cf2 =\cf4 scanner\cf2 .nextInt();\cf0\par
+\cf2\tab\tab\tab\cf1\b for\cf2\b0  (Camera \cf4 camera\cf2  : \cf3 cameraList\cf2 )\cf0\par
+\cf2\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\cf1\b if\cf2\b0 (\cf4 camera\cf2 .getId()==\cf4 id\cf2  )\cf0\par
+\cf2\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\tab\cf1\b if\cf2\b0 (\cf4 camera\cf2 .getRentalAmount()<=\cf3 wallet\cf2 .getBalance())\cf0\par
+\cf2\tab\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf4 camera\cf2 .setRented(\cf1\b true\cf2\b0 );\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf3 MycameraList\cf2 .add(\cf4 camera\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf3 wallet\cf2 .setBalance(\cf3 wallet\cf2 .getBalance()-\cf4 camera\cf2 .getRentalAmount());\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "YOUR TRANSACTION FOR CAMERA-"\cf2 +\cf4 camera\cf2 .getBrand()+\cf5 " "\cf2 +\cf4 camera\cf2 .getModel()+\cf5 " with rent INR."\cf2 +\cf4 camera\cf2 .getRentalAmount()+\cf5 " HAS SUCCESSFULLY COMPLETED"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\tab\tab\cf1\b else\cf0\b0\par
+\cf2\tab\tab\tab\tab\tab\{\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab System.\cf3\b\i out\cf2\b0\i0 .println(\cf5 "ERROR:TRANSACTION FAILED DUE TO INSUFFICIENT WALLET BALANCE. PLEASE DEPOSIT THE AMOUNT TO YOUR WALLET"\cf2 );\cf0\par
+\cf2\tab\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\tab\tab\tab\tab\cf0\par
+\cf2\tab\tab\tab\}\cf0\par
+\cf2\tab\tab\}\cf0\par
+\cf2             \cf6 //MAIN METHOD\cf0\par
+\cf2             \cf1\b public\cf2\b0  \cf1\b static\cf2\b0  \cf1\b void\cf2\b0  main(String[] \cf4 args\cf2 ) \{\cf0\par
+\cf2\tab         CameraRentalApp \cf4 app\cf2  = \cf1\b new\cf2\b0  CameraRentalApp();\cf0\par
+\cf2\tab         \cf4 app\cf2 .run();\cf0\par
+\cf2\tab     \}\cf0\par
+\cf2\tab\}\cf0\par
+\cf1\b import\cf2\b0  \ul java.util.Scanner\ulnone ;\cf0\par
+\cf1\b public\cf2\b0  \cf1\b class\cf2\b0  Wallet \{\cf0\par
+\cf2\tab\cf1\b private\cf2\b0  \cf1\b double\cf2\b0  \cf3 balance\cf2 ;\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  Wallet() \{\cf0\par
+\cf2         \cf3 balance\cf2  =500;\cf0\par
+\cf2     \}\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  \cf1\b double\cf2\b0  getBalance() \cf0\par
+\cf2     \{\cf0\par
+\cf2         \cf1\b return\cf2\b0  \cf3 balance\cf2 ;\cf0\par
+\cf2     \}\cf0\par
+\par
+\cf2     \cf1\b public\cf2\b0  \cf1\b void\cf2\b0  deposit(\cf1\b double\cf2\b0  \cf4 amount\cf2 ) \{\cf0\par
+\cf2         \cf3 balance\cf2  += \cf4 amount\cf2 ;\cf0\par
+\cf2     \}\cf0\par
+\cf2     \cf1\b public\cf2\b0  \cf1\b void\cf2\b0  setBalance(\cf1\b double\cf2\b0  \cf4 amount\cf2 )\cf0\par
+\cf2     \{\cf0\par
+\cf2     \tab\cf3 balance\cf2 =\cf4 amount\cf2 ;\cf0\par
+\cf2     \}\cf0\par
+\cf2\}\cf0\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\f0\fs22\par
+}
+ 
